@@ -1,5 +1,6 @@
 import 'dart:html';
 
+import 'package:dartemis/dartemis.dart';
 import 'package:gamedev_helpers/gamedev_helpers.dart';
 
 part 'position_rendering_system.g.dart';

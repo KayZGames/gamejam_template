@@ -26,8 +26,6 @@ class GameService {
       error = true;
       this.errorMessage = errorMessage;
       this.stackTrace = stackTrace;
-      print(errorMessage);
-      print(stackTrace);
     });
   }
 

@@ -10,15 +10,19 @@
         <key>dataFormat</key>
         <string>json</string>
         <key>textureFileName</key>
-        <filename>../../lib/assets/img/assets.png</filename>
+        <filename>../../assets/img/assets.png</filename>
         <key>dataFileNames</key>
         <map type='GFileNameMap'>
             <key>data</key>
             <struct type='DataFile'>
                 <key>name</key>
-                <filename>../../lib/assets/img/assets.json</filename>
+                <filename>../../assets/img/assets.json</filename>
             </struct>
         </map>
+        <key>fileList</key>
+        <array>
+            <filename>./</filename>
+        </array>
         <key>trimSpriteNames</key>
         <true/>
     </struct>

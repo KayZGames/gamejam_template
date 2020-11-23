@@ -1,5 +1,6 @@
 import 'package:angular/angular.dart';
-import 'package:gamejam_template/angular/game_service.dart';
+
+import 'game_service.dart';
 
 @Component(
   selector: 'game-menu',
@@ -21,4 +22,3 @@ class GameMenu {
     gameService.startGame();
   }
 }
-
