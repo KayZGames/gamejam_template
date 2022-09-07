@@ -2,27 +2,26 @@ name: gamejam_template
 publish_to: none
 
 environment:
-  sdk: '>=2.11.0 <3.0.0'
+  sdk: '>=2.18.0 <3.0.0'
 
-dependencies: 
-  angular: ^6.0.1
-  aspen: ^0.3.0
-  aspen_assets: ^0.4.0
-  dartemis: ^0.8.0
+dependencies:
+  asset_data:
+    git:
+      url: git@github.com:KayZGames/asset_data.git
+      ref: tags/1.0.0
+  dartemis: ^0.9.0
   gamedev_helpers:
     git:
-      url: git@github.com:kayzgames/gamedev_helpers.git
-      ref: aspen040
+      url: git@github.com:KayZGames/gamedev_helpers.git
+      ref: tags/1.0.0
+  ngdart: ^7.1.0
 
 dev_dependencies:
-  aspen_builder: ^0.4.0
-  build_runner: ^1.10.4
-  build_web_compilers: ^2.13.0
-  dartemis_builder: ^0.1.0+1
-  sass_builder: ^2.1.3
-
-dependency_overrides:
-  aspen_assets:
-    path: ../aspen/aspen_assets
-  aspen_builder:
-    path: ../aspen/aspen_builder
+  asset_builder:
+    git:
+      url: git@github.com:KayZGames/asset_builder.git
+      ref: tags/1.0.1
+  build_runner: ^2.2.0
+  build_web_compilers: ^3.2.5
+  dartemis_builder: ^0.2.0
+  sass_builder: ^2.1.4

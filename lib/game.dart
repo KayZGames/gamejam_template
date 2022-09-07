@@ -13,13 +13,12 @@ class Game extends GameBase {
 
   @override
   void createEntities() {
-    world.addManager(gameStateManager);
     addEntity([
       Controller(),
       Position(0.5, 0),
       Acceleration(0, 0),
       Velocity(0, 0),
-      Mass(),
+      Mass(1),
     ]);
   }
 
@@ -27,15 +26,17 @@ class Game extends GameBase {
   Map<int, List<EntitySystem>> getSystems() => {
         GameBase.rendering: [
           ControllerSystem(),
-          PositionRenderingSystem(ctx),
           ResetAccelerationSystem(),
           ControllerToActionSystem(),
           SimpleGravitySystem(),
           SimpleAccelerationSystem(),
           SimpleMovementSystem(),
-          CanvasCleaningSystem(canvas),
-          PositionRenderingSystem(ctx),
-          FpsRenderingSystem(ctx, 'white'),
+          CanvasCleaningSystem(canvas!),
+          PositionRenderingSystem(ctx!),
+          FpsRenderingSystem(ctx!, 'white'),
         ],
       };
+
+  @override
+  List<Manager> getManagers() => [gameStateManager];
 }

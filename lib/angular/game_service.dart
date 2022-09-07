@@ -4,10 +4,10 @@ import '../core/managers/game_state_manager.dart';
 import '../game.dart';
 
 class GameService {
-  Game _game;
+  Game? _game;
   bool error = false;
-  Object errorMessage;
-  StackTrace stackTrace;
+  Object? errorMessage;
+  StackTrace? stackTrace;
 
   final GameStateManager gameStateManager;
 
@@ -31,7 +31,7 @@ class GameService {
 
   void startGame() {
     if (gameCanStart) {
-      _game.resume();
+      _game!.resume();
       gameStateManager.state = GameState.playing;
     }
   }
