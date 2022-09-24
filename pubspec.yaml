@@ -7,19 +7,19 @@ environment:
 dependencies:
   asset_data:
     git:
-      url: git@github.com:KayZGames/asset_data.git
+      url: https://github.com/KayZGames/asset_data.git
       ref: tags/1.0.0
   dartemis: ^0.9.0
   gamedev_helpers:
     git:
-      url: git@github.com:KayZGames/gamedev_helpers.git
+      url: https://github.com/KayZGames/gamedev_helpers.git
       ref: tags/2.0.0
   ngdart: ^7.1.0
 
 dev_dependencies:
   asset_builder:
     git:
-      url: git@github.com:KayZGames/asset_builder.git
+      url: https://github.com/KayZGames/asset_builder.git
       ref: tags/1.0.1
   build_runner: ^2.2.0
   build_web_compilers: ^3.2.5
