@@ -31,6 +31,9 @@ jobs:
         run: dart pub global activate peanut
 
       - name: Build gh-pages
+        uses: oleksiyrudenko/gha-git-credentials@v2-latest
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
         run: peanut
 
       - name: Deploy to gh-pages
