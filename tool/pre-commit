@@ -1,0 +1,16 @@
+#!/bin/sh
+#
+
+dart format --output=none --set-exit-if-changed .
+if [ $? -ne 0 ]; then
+ echo "Formatting needed!"
+ exit 1
+fi
+
+echo "Analyzing..."
+dart analyze --fatal-infos
+
+if [ $? -ne 0 ]; then
+ echo "Analyze failed!"
+ exit 1
+fi
