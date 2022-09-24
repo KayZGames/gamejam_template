@@ -20,5 +20,3 @@ doc/api/
 *.js.deps
 *.js.map
 
-# generated code
-*.g.dart
