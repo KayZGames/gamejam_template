@@ -38,4 +38,4 @@ jobs:
         run: peanut
 
       - name: Deploy to gh-pages
-        run: git push origin --set-upstream gh-pages
+        run: git push origin --set-upstream gh-pages --force
