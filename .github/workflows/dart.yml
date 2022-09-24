@@ -14,6 +14,10 @@ jobs:
       - uses: dart-lang/setup-dart@v1.3
         with:
           sdk: dev
+      - uses: oleksiyrudenko/gha-git-credentials@v2-latest
+        with:
+          global: true
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Install dependencies
         run: dart pub get
@@ -31,9 +35,6 @@ jobs:
         run: dart pub global activate peanut
 
       - name: Build gh-pages
-        uses: oleksiyrudenko/gha-git-credentials@v2-latest
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
         run: peanut
 
       - name: Deploy to gh-pages
