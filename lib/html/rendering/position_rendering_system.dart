@@ -19,9 +19,7 @@ class PositionRenderingSystem extends _$PositionRenderingSystem {
   PositionRenderingSystem(this.ctx);
 
   @override
-  void processEntity(int entity) {
-    final position = positionMapper[entity];
-
+  void processEntity(int entity, Position position) {
     ctx
       ..fillStyle = 'white'
       ..fillRect(

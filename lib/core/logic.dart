@@ -17,9 +17,11 @@ class ControllerToActionSystem extends _$ControllerToActionSystem {
   final _sqrttwo = 1.4142;
 
   @override
-  void processEntity(int entity) {
-    final controller = controllerMapper[entity];
-    final acceleration = accelerationMapper[entity];
+  void processEntity(
+    int entity,
+    Controller controller,
+    Acceleration acceleration,
+  ) {
     if (controller.up) {
       acceleration.y += _acc * world.delta;
     } else if (controller.down) {
