@@ -17,11 +17,11 @@ class GameService {
 
   bool get gameCanStart => _game != null;
 
-  void initGame() {
-    runZonedGuarded(() {
-      _game = Game(gameStateManager)
-        ..start()
-        ..pause();
+  Future<void> initGame() async {
+    await runZonedGuarded(() async {
+      _game = Game(gameStateManager);
+      await _game!.start();
+      _game!.pause();
     }, (errorMessage, stackTrace) {
       error = true;
       this.errorMessage = errorMessage;

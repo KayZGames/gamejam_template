@@ -23,7 +23,5 @@ class GameContainer implements OnInit {
   bool get menuVisible => gameService.menuVisible;
 
   @override
-  void ngOnInit() {
-    gameService.initGame();
-  }
+  Future<void> ngOnInit() async => gameService.initGame();
 }

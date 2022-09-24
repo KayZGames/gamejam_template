@@ -1,18 +1,25 @@
 import 'package:dartemis/dartemis.dart';
 
 class Controller extends Component {
-  bool up, down, left, right;
-  bool upleft, upright, downleft, downright;
+  bool up;
+  bool down;
+  bool left;
+  bool right;
+  bool upleft;
+  bool upright;
+  bool downleft;
+  bool downright;
 
-  Controller(
-      {this.up = false,
-      this.down = false,
-      this.left = false,
-      this.right = false,
-      this.upleft = false,
-      this.upright = false,
-      this.downleft = false,
-      this.downright = false});
+  Controller({
+    this.up = false,
+    this.down = false,
+    this.left = false,
+    this.right = false,
+    this.upleft = false,
+    this.upright = false,
+    this.downleft = false,
+    this.downright = false,
+  });
 
   void reset() {
     up = false;

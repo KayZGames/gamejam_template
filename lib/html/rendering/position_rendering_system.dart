@@ -25,9 +25,10 @@ class PositionRenderingSystem extends _$PositionRenderingSystem {
     ctx
       ..fillStyle = 'white'
       ..fillRect(
-          position.x * cameraManager.width,
-          -position.y * cameraManager.height,
-          0.01 * cameraManager.width,
-          0.01 * cameraManager.height);
+        position.x * cameraManager.width,
+        -position.y * cameraManager.height,
+        0.01 * cameraManager.width,
+        0.01 * cameraManager.height,
+      );
   }
 }
