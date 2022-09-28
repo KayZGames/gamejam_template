@@ -17,12 +17,16 @@
     z-index: 0;
   }
 
-  > #hud {
+  > #webgl {
     z-index: 1;
   }
 
-  > game-menu {
+  > #hud {
     z-index: 2;
+  }
+
+  > game-menu {
+    z-index: 3;
   }
 }
 

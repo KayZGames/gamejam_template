@@ -9,7 +9,7 @@ import 'html/rendering/position_rendering_system.dart';
 
 class Game extends GameBase {
   final GameStateManager gameStateManager;
-  Game(this.gameStateManager) : super.noAssets('%game_dir%', 'canvas#game');
+  Game(this.gameStateManager) : super.noAssets('%game_dir%');
 
   @override
   void createEntities() {
@@ -31,9 +31,9 @@ class Game extends GameBase {
           SimpleGravitySystem(),
           SimpleAccelerationSystem(),
           SimpleMovementSystem(),
-          CanvasCleaningSystem(canvas!),
-          PositionRenderingSystem(ctx!),
-          FpsRenderingSystem(ctx!, 'white'),
+          CanvasCleaningSystem(canvas),
+          PositionRenderingSystem(ctx),
+          FpsRenderingSystem(ctx, 'white'),
         ],
       };
 

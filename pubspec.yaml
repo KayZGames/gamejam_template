@@ -13,7 +13,7 @@ dependencies:
   gamedev_helpers:
     git:
       url: https://github.com/KayZGames/gamedev_helpers.git
-      ref: tags/2.0.0
+      ref: tags/2.1.0
   ngdart: ^7.1.0
 
 dev_dependencies:
