@@ -14,10 +14,6 @@ jobs:
       - uses: dart-lang/setup-dart@v1.3
         with:
           sdk: dev
-      - uses: oleksiyrudenko/gha-git-credentials@v2-latest
-        with:
-          global: true
-          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Install dependencies
         run: dart pub get
@@ -31,10 +27,50 @@ jobs:
       - name: Analyze
         run: dart analyze --fatal-infos
 
-      - name: Deploy to gh-pages
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Prepare cleanup of ./build
+        uses: tj-actions/glob@v13
+        id: glob
+        # from https://github.com/kevmoo/peanut.dart/blob/75fe6ce2ad1f6b1927d9043c1308b12e3f57406d/lib/src/build_runner.dart#L112
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build
-          # from https://github.com/kevmoo/peanut.dart/blob/75fe6ce2ad1f6b1927d9043c1308b12e3f57406d/lib/src/build_runner.dart#L112
-          exclude_assets: '.github,./packages/intl/**,.packages/_fe_analyzer_shared/**,**.dart,**.dart.js.deps,**.dart.js.tar.gz,**.md,**.module,**.ng_placeholder,**.yaml,.build.manifest,.dart_tool/**,.packages,packages/$sdk/**,packages/analyzer/**,packages/build_runner/**,packages/build_web_compilers/**,packages/node_preamble/**,packages/package_resolver/**,packages/test/**'
+          working-directory: ./build
+          files: |
+            ./packages/intl/**
+            .packages/_fe_analyzer_shared/**
+            **.dart
+            **.dart.js.deps
+            **.dart.js.tar.gz
+            **.md
+            **.module
+            **.ng_placeholder
+            **.yaml
+            .build.manifest
+            .dart_tool/**
+            .packages
+            packages/$sdk/**
+            packages/analyzer/**
+            packages/build_runner/**
+            packages/build_web_compilers/**
+            packages/node_preamble/**
+            packages/package_resolver/**
+            packages/test/**
+
+      - name: Cleanup ./build
+        run: |
+          rm "${{ steps.glob.outputs.paths }}"
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: ./build
+
+  # Deployment job
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
