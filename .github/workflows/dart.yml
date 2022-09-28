@@ -35,6 +35,7 @@ jobs:
           working-directory: ./build
           strip-top-level-dir: false
           match-directories: false
+          escape-paths: true
           files: |
             ./packages/intl/**
             .packages/_fe_analyzer_shared/**
