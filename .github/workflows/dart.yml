@@ -33,6 +33,7 @@ jobs:
         # from https://github.com/kevmoo/peanut.dart/blob/75fe6ce2ad1f6b1927d9043c1308b12e3f57406d/lib/src/build_runner.dart#L112
         with:
           working-directory: ./build
+          strip-top-level-dir: false
           files: |
             ./packages/intl/**
             .packages/_fe_analyzer_shared/**
@@ -56,7 +57,7 @@ jobs:
 
       - name: Cleanup ./build
         run: |
-          rm "${{ steps.glob.outputs.paths }}"
+          rm ${{ steps.glob.outputs.paths }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
