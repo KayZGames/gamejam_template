@@ -37,4 +37,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./build
           # from https://github.com/kevmoo/peanut.dart/blob/75fe6ce2ad1f6b1927d9043c1308b12e3f57406d/lib/src/build_runner.dart#L112
-          exclude_assets: '.github,./packages/intl/**,**.dart,**.dart.js.deps,**.dart.js.tar.gz,**.md,**.module,**.ng_placeholder,**.yaml,.build.manifest,.dart_tool/**,.packages,packages/$sdk/**,packages/analyzer/**,packages/build_runner/**,packages/build_web_compilers/**,packages/node_preamble/**,packages/package_resolver/**,packages/test/**'
+          exclude_assets: '.github,./packages/intl/**,.packages/_fe_analyzer_shared/**,**.dart,**.dart.js.deps,**.dart.js.tar.gz,**.md,**.module,**.ng_placeholder,**.yaml,.build.manifest,.dart_tool/**,.packages,packages/$sdk/**,packages/analyzer/**,packages/build_runner/**,packages/build_web_compilers/**,packages/node_preamble/**,packages/package_resolver/**,packages/test/**'
